@@ -12,6 +12,7 @@
     <modules>
         <module>gulimall-common</module>
         <module>gulimall-product</module>
+        <module>gulimall-ware</module>
     </modules>
 
 
