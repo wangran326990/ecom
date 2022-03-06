@@ -26,3 +26,11 @@ logging:
   level:
     com.atguigu.gulimall: debug
 
+cloud:
+  aws:
+    region:
+      static: ca-central-1
+    stack:
+      auto: false
+    credentials:
+      profile-name: default
