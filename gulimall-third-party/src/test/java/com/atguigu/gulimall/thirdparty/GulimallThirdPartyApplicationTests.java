@@ -33,10 +33,10 @@ class GulimallThirdPartyApplicationTests {
     ObjectMapper objectMapper;
 
 
-    private String s3Key = "AKIAYB3RK7PPIJS53GMD";
-    private String s3Secret = "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 ";
-    private String bucket = "aws-product";
-    private String region = "ca-central-1";
+    private String s3Key = "123";
+    private String s3Secret = "123/xMNFdZwvTlRJYKH4k ";
+    private String bucket = "aws-123";
+    private String region = "ca-123-1";
     @Test
     void contextLoads() {
 
