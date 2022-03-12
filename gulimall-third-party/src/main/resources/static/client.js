@@ -5,7 +5,7 @@
 var acceptFileType = /.*/i;
 var maxFileSize = 1000*1024*128;
 // The URL to your endpoint that maps to s3Credentials function
-var credentialsUrl = '/s3_credentials';
+var credentialsUrl = '/oss/policy';
 // The URL to your endpoint to register the uploaded file
 var uploadUrl = '/upload';
 
@@ -15,7 +15,7 @@ window.initS3FileUpload = function($fileInput) {
     // maxFileSize: maxFileSize,
     paramName: 'file',
     add: s3add,
-    dataType: 'xml',
+    //dataType: 'xml',
     done: onS3Done
   });
 };
@@ -32,7 +32,8 @@ function s3add(e, data) {
     dataType: 'json',
     data: {
       filename: filename,
-      content_type: contentType
+      contentType: contentType,
+      t: 1000
     },
     success: function(s3Data) {
       data.url = s3Data.endpoint_url;

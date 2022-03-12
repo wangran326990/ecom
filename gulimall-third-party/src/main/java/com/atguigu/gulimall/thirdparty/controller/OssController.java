@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -33,8 +34,8 @@ public class OssController {
     private String s3Secret;
     @Value("${cloud.aws.region.static}")
     private String region;
-    @RequestMapping("/oss/policy/{fileName}/{contentType}")
-    public R policy(@PathVariable("fileName") String fileName, @PathVariable("contentType") String contentType) {
+    @RequestMapping("/oss/policy")
+    public R policy(@RequestParam("t") Long time, @RequestParam("fileName") String fileName, @RequestParam("contentType") String contentType) {
 
         String s3Key = UUID.randomUUID().toString()+"_"+fileName;
         BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(apiKey, s3Secret);
@@ -44,15 +45,16 @@ public class OssController {
         config.setS3Key(s3Key);
         AWSAuthUtil awsAuthUtil = new AWSAuthUtil(basicAWSCredentials, region, "s3",config);
         S3PresignedResponse s3PresignedResponse = awsAuthUtil.s3Credentails();
-        return R.ok();
+        return R.ok().put("s3Params", s3PresignedResponse);
     }
     @RequestMapping("/s3_credentials")
-    public S3PresignedResponse test() {
+    public S3PresignedResponse test(@RequestParam("filename") String fileName, @RequestParam("content_type") String contentType) {
         BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(apiKey, s3Secret);
+        String s3Key = UUID.randomUUID().toString()+"_"+fileName;
         Config config = new Config();
-        config.setContentType("image/jpeg");
+        config.setContentType(contentType);
         config.setBucket(bucket);
-        config.setS3Key("744b2bb80388ff9e2119b9cb11c16204.jpg");
+        config.setS3Key(s3Key);
         AWSAuthUtil awsAuthUtil = new AWSAuthUtil(basicAWSCredentials, region, "s3",config);
         return awsAuthUtil.s3Credentails();
     }

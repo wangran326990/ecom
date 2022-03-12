@@ -15,7 +15,7 @@ window.initS3FileUpload = function($fileInput) {
     // maxFileSize: maxFileSize,
     paramName: 'file',
     add: s3add,
-    dataType: 'xml',
+    //dataType: 'xml',
     done: onS3Done
   });
 };
