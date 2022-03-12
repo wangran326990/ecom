@@ -1,0 +1,1 @@
+{"expiration":"EXPIRATION_TIME","conditions":[{"bucket":"AWS_S3_BUCKET"},{"key":"AWS_S3_KEY"},{"acl":"public-read"},{"success_action_status":"201"},["starts-with","$Content-Type",""],["content-length-range",0,CONTENT_LENGTH_MAX],{"x-amz-algorithm":"AWS4-HMAC-SHA256"},{"x-amz-credential":"X_AWS_CREDENTIAL"},{"x-amz-date":"AWS_DATE"}]}
