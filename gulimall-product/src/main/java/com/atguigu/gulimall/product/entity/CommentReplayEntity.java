@@ -10,9 +10,9 @@ import lombok.Data;
 /**
  * 商品评价回复关系
  * 
- * @author leifengyang
- * @email leifengyang@gmail.com
- * @date 2019-10-01 21:08:48
+ * @author Ethan
+ * @email hongshengmo@163.com
+ * @date 2020-05-27 15:38:36
  */
 @Data
 @TableName("pms_comment_replay")

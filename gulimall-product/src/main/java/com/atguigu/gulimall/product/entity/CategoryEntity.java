@@ -6,22 +6,19 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-
-
 
 /**
  * 商品三级分类
  * 
- * @author leifengyang
- * @email leifengyang@gmail.com
- * @date 2019-10-01 21:08:48
+ * @author Ethan
+ * @email hongshengmo@163.com
+ * @date 2020-05-27 15:38:36
  */
-
 @Data
 @TableName("pms_category")
 public class CategoryEntity implements Serializable {
@@ -66,10 +63,12 @@ public class CategoryEntity implements Serializable {
 	 */
 	private Integer productCount;
 
+	/**
+	 * 子目录节点
+	 */
+	@TableField(exist =false) //表示该字段不是数据库中的字段
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
-	@TableField(exist=false)
 	private List<CategoryEntity> children;
-
 
 
 }

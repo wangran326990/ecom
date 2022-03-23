@@ -3,6 +3,7 @@ package com.atguigu.gulimall.product.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.atguigu.common.utils.PageUtils;
 import com.atguigu.gulimall.product.entity.CategoryEntity;
+import com.atguigu.gulimall.product.vo.Catalog2Vo;
 
 import java.util.List;
 import java.util.Map;
@@ -10,9 +11,9 @@ import java.util.Map;
 /**
  * 商品三级分类
  *
- * @author leifengyang
- * @email leifengyang@gmail.com
- * @date 2019-10-01 21:08:48
+ * @author Ethan
+ * @email hongshengmo@163.com
+ * @date 2020-05-27 15:38:36
  */
 public interface CategoryService extends IService<CategoryEntity> {
 
@@ -22,16 +23,23 @@ public interface CategoryService extends IService<CategoryEntity> {
 
     void removeMenuByIds(List<Long> asList);
 
-
     /**
-     * 找到catelogId的完整路径；
-     * [父/子/孙]
-     * @param catelogId
+     * 找到该三级分类的完整路径
+     * @param categorygId
      * @return
      */
-    Long[] findCatelogPath(Long catelogId);
+    Long[] findCatelogPathById(Long categorygId);
 
     void updateCascade(CategoryEntity category);
 
+    List<CategoryEntity> getLevel1Catagories();
+
+    Map<String, List<Catalog2Vo>> getCategoryMap();
+
+    Map<String, List<Catalog2Vo>> getCatalogJsonDbWithRedisLock();
+
+    Map<String, List<Catalog2Vo>> getCatalogJsonDbWithRedisson();
+
+    Map<String, List<Catalog2Vo>> getCatalogJsonDbWithSpringCache();
 }
 

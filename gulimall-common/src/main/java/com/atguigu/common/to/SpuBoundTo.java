@@ -8,6 +8,9 @@ import java.math.BigDecimal;
 public class SpuBoundTo {
 
     private Long spuId;
+
     private BigDecimal buyBounds;
+
     private BigDecimal growBounds;
+
 }
