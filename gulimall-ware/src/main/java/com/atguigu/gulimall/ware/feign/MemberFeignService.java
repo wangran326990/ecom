@@ -5,9 +5,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@FeignClient("gulimall-product")
-public interface ProductFeignService {
-
-    @RequestMapping("/product/skuinfo/info/{skuId}")
-    R info(@PathVariable("skuId") Long skuId);
+@FeignClient("gulimall-member")
+public interface MemberFeignService {
+    @RequestMapping("member/memberreceiveaddress/info/{id}")
+    R info(@PathVariable("id") Long id);
 }
