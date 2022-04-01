@@ -47,42 +47,42 @@ spring:
           filters:
             - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
 
-        #将主机地址为search.gulimall.com转发至gulimall-search
+        #将主机地址为search.ran.me转发至gulimall-search
         - id: gulimall_serach_host
           uri: lb://gulimall-search
           predicates:
             - Host=search.ran.me
 
-        #将主机地址为auth.gulimall.com转发至gulimall-auth
+        #将主机地址为auth.ran.me转发至gulimall-auth
         - id: gulimall_auth_host
           uri: lb://gulimall-auth-server
           predicates:
             - Host=auth.ran.me
 
 
-        #将主机地址为search.gulimall.com转发至gulimall-search
+        #将主机地址为search.ran.me转发至gulimall-search
         - id: gulimall_cart_host
           uri: lb://gulimall-cart
           predicates:
             - Host=cart.ran.me
 
-        #将主机地址为order.gulimall.com转发至gulimall-order
+        #将主机地址为order.ran.me转发至gulimall-order
         - id: gulimall_order_host
           uri: lb://gulimall-order
           predicates:
             - Host=order.ran.me
 
-        #将主机地址为seckill.gulimall.com转发至gulimall-seckill
+        #将主机地址为seckill.ran.me转发至gulimall-seckill
         - id: gulimall_seckill_host
           uri: lb://gulimall-seckill
           predicates:
             - Host=seckill.ran.me
 
-        #将主机地址为**.gulimall.com转发至gulimall-product
+        #将主机地址为**.ran.me转发至gulimall-product
         - id: gulimall_host
           uri: lb://gulimall-product
           predicates:
-            - Host=**.ran.me,item.gulimall.com
+            - Host=**.ran.me,item.ran.me
     sentinel:
       transport:
         dashboard: localhost:8080
