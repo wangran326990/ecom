@@ -82,7 +82,7 @@ spring:
         - id: gulimall_host
           uri: lb://gulimall-product
           predicates:
-            - Host=**.ran.me
+            - Host=**.ran.me,item.gulimall.com
     sentinel:
       transport:
         dashboard: localhost:8080

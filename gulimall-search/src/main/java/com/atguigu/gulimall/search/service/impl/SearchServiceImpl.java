@@ -185,7 +185,7 @@ public class SearchServiceImpl implements SearchService {
                 //6.3 设置面包屑跳转链接
                 String queryString = searchParam.get_queryString();
                 String replace = queryString.replace("&attrs=" + attr, "").replace("attrs=" + attr+"&", "").replace("attrs=" + attr, "");
-                navVo.setLink("http://search.gulimall.com/search.html" + (replace.isEmpty()?"":"?"+replace));
+                navVo.setLink("http://search.ran.me/search.html" + (replace.isEmpty()?"":"?"+replace));
                 return navVo;
             }).collect(Collectors.toList());
             result.setNavs(navVos);

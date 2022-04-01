@@ -824,29 +824,7 @@
                         </ul>
                     </div>
                 </div>
-                <!--价格-->
-                <div class="JD_pre">
-                    <div class="sl_key">
-                        <span>价格：</span>
-                    </div>
-                    <div class="sl_value">
-                        <ul>
-                            <li><a href="#">0-499</a></li>
-                            <li><a href="#">500-999</a></li>
-                            <li><a href="#">1000-1699</a></li>
-                            <li><a href="#">1700-2799</a></li>
-                            <li><a href="#">2800-4499</a></li>
-                            <li><a href="#">4500-11999</a></li>
-                            <li><a href="#">12000以上</a></li>
-                            <li class="sl_value_li">
-                                <input type="text">
-                                <p>-</p>
-                                <input type="text">
-                                <a href="#">确定</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+
                 <!--商品属性-->
                 <div class="JD_pre" th:each="attr: ${result.getAttrs()}" >
                     <div class="sl_key">
@@ -1196,7 +1174,7 @@
                                 <a href="/static/search/#">关注</a>
                             </div>
                             <p class="da">
-                                <a th:href="|http://item.gulimall.com/${product.skuId}.html|" >
+                                <a th:href="|http://item.ran.me/${product.skuId}.html|" >
                                     <img   class="dim" th:src="${product.skuImg}">
                                 </a>
                             </p>
