@@ -1,5 +1,7 @@
 package com.atguigu.gulimall.search.Thread;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -38,11 +40,11 @@ public class RanThreadTests {
             return i;
         }, executorService);
 
-        CompletableFuture<Integer>  future02 = CompletableFuture.supplyAsync(()->{
+        CompletableFuture<String>  future02 = CompletableFuture.supplyAsync(()->{
             System.out.println(Thread.currentThread().getName());
             int i = 10 /5;
             System.out.println("result: "+ i);
-            return i;
+            return i+"";
         }, executorService);
 
 //        future01.runAfterBothAsync(future02,()-> {
@@ -52,6 +54,10 @@ public class RanThreadTests {
               System.out.println("task3 start");
           },executorService);
 
+        CompletableFuture<String> future1 = future01.thenApply((ret)->{
+            System.out.println("task3 start");
+            return "";
+        });
         //System.out.println("main end" + future.get());
     }
 }

@@ -24,8 +24,6 @@ import java.util.UUID;
 @RestController
 public class OssController {
 
-    @Autowired
-    AmazonS3 s3Client;
     @Value("${cloud.s3.bucket}")
     String bucket;
     @Value("${cloud.s3.apiKey}")
