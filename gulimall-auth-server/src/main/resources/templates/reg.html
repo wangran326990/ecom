@@ -5987,7 +5987,7 @@ Cookie</span>是由网页服务器存放在您的访问设备上的文本文件�
         </div>
         <div class="register-box">
             <label  class="other_label">
-                <span>中国 0086∨</span>
+                <span>加拿大+1∨</span>
                 <input id="phoneNum" name="phone" class="phone" maxlength="20" type="text" placeholder="建议使用常用手机">
             </label>
             <div class="tips" style="color:red" th:text="${errors!=null?(#maps.containsKey(errors,'phone')?errors.phone:''):''}">
@@ -6088,6 +6088,7 @@ Cookie</span>是由网页服务器存放在您的访问设备上的文本文件�
 			timeOutChangeStyle();
 			//发送验证码
 			var phone=$("#phoneNum").val();
+			console.log("phone number" + phone);
 			$.get("/sms/sendCode?phone="+phone,function (data){
 				if (data.code!=0){
 					alert(data.msg);

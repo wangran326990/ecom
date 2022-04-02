@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
-public class SNSController {
+public class SnsController {
     @Autowired
     private SmsVerifyCodeService smsVerifyCodeService;
 
-    @RequestMapping(value = "/sendMessage", method = RequestMethod.GET)
-    public R sendMessage(@RequestParam String phoneNumber) {
-        log.debug("phoneNumber:{}", phoneNumber);
-        String msg = smsVerifyCodeService.sendSMSMessage(phoneNumber);
+    @RequestMapping(value = "/sms/sendCode", method = RequestMethod.GET)
+    public R sendMessage(@RequestParam("phone") String phone, @RequestParam("code") String code) {
+        log.debug("phoneNumber:{}", phone);
+        String msg = smsVerifyCodeService.sendSMSMessage(phone, code);
         return R.ok().put("code", msg);
     }
 }

@@ -19,7 +19,7 @@ public class SmsVerifyCodeService {
     @Autowired
     private AmazonSNS amazonSns;
 
-    public String sendSMSMessage(String phoneNumber) {
+    public String sendSMSMessage(String phoneNumber, String code) {
         //String message = "My SMS message";
         Map<String, MessageAttributeValue> smsAttributes =
                 new HashMap<>();
@@ -28,14 +28,11 @@ public class SmsVerifyCodeService {
                 .withStringValue("0.05") //Sets the max price to 0.50 USD.
                 .withDataType("Number"));
 
-        //get VerifyCode.
-        String message = IdentifyCodeUtil.getRandom();
-
         PublishResult result = amazonSns.publish(new PublishRequest()
-                .withMessage(message)
+                .withMessage(code)
                 .withPhoneNumber(phoneNumber)
                 .withMessageAttributes(smsAttributes));
         log.info("message ID:{}",result.getMessageId()); // Prints the message ID.
-        return message;
+        return code;
     }
 }
