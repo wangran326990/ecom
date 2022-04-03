@@ -119,6 +119,9 @@ public class CartServiceImpl implements CartService {
             redisTemplate.delete(CartConstant.CART_PREFIX + userInfoTo.getUserKey());
         }
 
+        cartVo.setTotalAmount(cartVo.getTotalAmount());
+        cartVo.setCountNum(cartVo.getCountNum());
+        cartVo.setCountType(cartVo.getCountType());
         return cartVo;
     }
 
