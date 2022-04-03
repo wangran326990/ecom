@@ -9,9 +9,9 @@ import java.util.Map;
 /**
  * 会员收藏的专题活动
  *
- * @author leifengyang
- * @email leifengyang@gmail.com
- * @date 2019-10-08 09:47:05
+ * @author Ethan
+ * @email hongshengmo@163.com
+ * @date 2020-05-27 23:01:00
  */
 public interface MemberCollectSubjectService extends IService<MemberCollectSubjectEntity> {
 

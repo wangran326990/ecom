@@ -10,9 +10,9 @@ import lombok.Data;
 /**
  * 会员
  * 
- * @author leifengyang
- * @email leifengyang@gmail.com
- * @date 2019-10-08 09:47:05
+ * @author Ethan
+ * @email hongshengmo@163.com
+ * @date 2020-05-27 23:01:00
  */
 @Data
 @TableName("ums_member")
@@ -93,4 +93,19 @@ public class MemberEntity implements Serializable {
 	 */
 	private Date createTime;
 
+
+	/**
+	 * 社交登录UID
+	 */
+	private String uid;
+
+	/**
+	 * 社交登录TOKEN
+	 */
+	private String accessToken;
+
+	/**
+	 * 社交登录过期时间
+	 */
+	private long expiresIn;
 }

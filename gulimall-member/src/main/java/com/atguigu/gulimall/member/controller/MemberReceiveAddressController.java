@@ -1,6 +1,7 @@
 package com.atguigu.gulimall.member.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,9 @@ import com.atguigu.common.utils.R;
 /**
  * 会员收货地址
  *
- * @author leifengyang
- * @email leifengyang@gmail.com
- * @date 2019-10-08 09:47:05
+ * @author Ethan
+ * @email hongshengmo@163.com
+ * @date 2020-05-27 23:01:00
  */
 @RestController
 @RequestMapping("member/memberreceiveaddress")
@@ -34,7 +35,6 @@ public class MemberReceiveAddressController {
      * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("member:memberreceiveaddress:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = memberReceiveAddressService.queryPage(params);
 
@@ -42,11 +42,16 @@ public class MemberReceiveAddressController {
     }
 
 
+    @RequestMapping("/getAddressByUserId")
+    public List<MemberReceiveAddressEntity> getAddressByUserId(@RequestBody Long userId) {
+        return memberReceiveAddressService.getAddressByUserId(userId);
+    }
+
+
     /**
      * 信息
      */
     @RequestMapping("/info/{id}")
-    //@RequiresPermissions("member:memberreceiveaddress:info")
     public R info(@PathVariable("id") Long id){
 		MemberReceiveAddressEntity memberReceiveAddress = memberReceiveAddressService.getById(id);
 
@@ -57,7 +62,6 @@ public class MemberReceiveAddressController {
      * 保存
      */
     @RequestMapping("/save")
-    //@RequiresPermissions("member:memberreceiveaddress:save")
     public R save(@RequestBody MemberReceiveAddressEntity memberReceiveAddress){
 		memberReceiveAddressService.save(memberReceiveAddress);
 
@@ -68,7 +72,6 @@ public class MemberReceiveAddressController {
      * 修改
      */
     @RequestMapping("/update")
-    //@RequiresPermissions("member:memberreceiveaddress:update")
     public R update(@RequestBody MemberReceiveAddressEntity memberReceiveAddress){
 		memberReceiveAddressService.updateById(memberReceiveAddress);
 
@@ -79,7 +82,6 @@ public class MemberReceiveAddressController {
      * 删除
      */
     @RequestMapping("/delete")
-    //@RequiresPermissions("member:memberreceiveaddress:delete")
     public R delete(@RequestBody Long[] ids){
 		memberReceiveAddressService.removeByIds(Arrays.asList(ids));
 

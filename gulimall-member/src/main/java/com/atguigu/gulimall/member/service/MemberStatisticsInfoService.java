@@ -9,9 +9,9 @@ import java.util.Map;
 /**
  * 会员统计信息
  *
- * @author leifengyang
- * @email leifengyang@gmail.com
- * @date 2019-10-08 09:47:05
+ * @author Ethan
+ * @email hongshengmo@163.com
+ * @date 2020-05-27 23:01:00
  */
 public interface MemberStatisticsInfoService extends IService<MemberStatisticsInfoEntity> {
 

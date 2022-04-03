@@ -107,7 +107,7 @@ public class LoginController {
         }else {
             //2.若JSR303校验通过
             //判断验证码是否正确
-            String code = redisTemplate.opsForValue().get(AuthServerConstant.SMS_CODE_CACHE_PREFIX + registerVo.getPhone());
+            String code = redisTemplate.opsForValue().get(AuthServerConstant.SMS_CODE_CACHE_PREFIX + registerVo.getPhone().replaceAll("\\+1", ""));
             //2.1 如果对应手机的验证码不为空且与提交上的相等-》验证码正确
             if (!StringUtils.isEmpty(code) && registerVo.getCode().equals(code.split("_")[0])) {
                 //2.1.1 使得验证后的验证码失效
