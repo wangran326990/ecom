@@ -41,7 +41,7 @@ public class CartController {
     public String addCartItem(@RequestParam("skuId") Long skuId, @RequestParam("num") Integer num, RedirectAttributes attributes) {
         cartService.addCartItem(skuId, num);
         attributes.addAttribute("skuId", skuId);
-        return "redirect:http://cart.gulimall.com/addCartItemSuccess";
+        return "redirect:http://cart.ran.me/addCartItemSuccess";
     }
 
     @RequestMapping("/addCartItemSuccess")
@@ -55,19 +55,19 @@ public class CartController {
     @RequestMapping("/checkCart")
     public String checkCart(@RequestParam("isChecked") Integer isChecked,@RequestParam("skuId")Long skuId) {
         cartService.checkCart(skuId, isChecked);
-        return "redirect:http://cart.gulimall.com/cart.html";
+        return "redirect:http://cart.ran.me/cart.html";
     }
 
     @RequestMapping("/countItem")
     public String changeItemCount(@RequestParam("skuId") Long skuId, @RequestParam("num") Integer num) {
         cartService.changeItemCount(skuId, num);
-        return "redirect:http://cart.gulimall.com/cart.html";
+        return "redirect:http://cart.ran.me/cart.html";
     }
 
     @RequestMapping("/deleteItem")
     public String deleteItem(@RequestParam("skuId") Long skuId) {
         cartService.deleteItem(skuId);
-        return "redirect:http://cart.gulimall.com/cart.html";
+        return "redirect:http://cart.ran.me/cart.html";
     }
 
     @ResponseBody

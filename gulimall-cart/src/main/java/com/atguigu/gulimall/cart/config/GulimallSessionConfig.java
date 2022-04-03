@@ -19,7 +19,7 @@ public class GulimallSessionConfig {
     public CookieSerializer cookieSerializer() {
         DefaultCookieSerializer serializer = new DefaultCookieSerializer();
         serializer.setCookieName("GULISESSIONID");
-        serializer.setDomainName("gulimall.com");
+        serializer.setDomainName("ran.me");
         return serializer;
     }
 }

@@ -55,7 +55,7 @@ public class CartInterceptor implements HandlerInterceptor {
         //如果浏览器中没有user-key，我们为其生成
         if (!userInfoTo.getTempUser()) {
             Cookie cookie = new Cookie(CartConstant.TEMP_USER_COOKIE_NAME, userInfoTo.getUserKey());
-            cookie.setDomain("gulimall.com");
+            cookie.setDomain("ran.me");
             cookie.setMaxAge(CartConstant.TEMP_USER_COOKIE_TIMEOUT);
             response.addCookie(cookie);
         }
