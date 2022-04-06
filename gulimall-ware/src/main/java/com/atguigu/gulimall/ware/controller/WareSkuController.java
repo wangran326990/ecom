@@ -39,7 +39,6 @@ public class WareSkuController {
 
     /**
      * 下订单时锁库存
-     * @param itemVos
      * @return
      */
     @RequestMapping("/lock/order")
